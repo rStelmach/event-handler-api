@@ -17,6 +17,6 @@ export const deleteEvent = async (req: express.Request, res: express.Response, n
     });
     res.status(201).json({ message: 'Event has been deleted !', deleteEvent });
   } catch (e) {
-    return next(new BadRequestError({ message: 'Such Id does not exist' }));
+    return next(new BadRequestError({ message: 'Such Id does not exist.' }));
   }
 };
