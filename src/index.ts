@@ -3,9 +3,11 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
+import swaggerUI from 'swagger-ui-express';
 import { addEventRouter } from './routes/addEvent';
 import { getEventsRouter } from './routes/getEvents';
 import { deleteEventRouter } from './routes/deleteEvent';
+import { swaggerSpecification } from './libs/swagger';
 
 require('dotenv').config();
 const app = express();
@@ -26,8 +28,8 @@ app.use(
 );
 app.use(limiter);
 app.use(express.json());
-
-app.get('/', (req, res) => res.send('Express + TypeScript Server for Handling events'));
+app.use('/api/v1/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpecification, { explorer: true }));
+app.get('/', (req, res) => res.send('I dream of being a website.'));
 
 app.use('/addEvent', addEventRouter);
 app.use('/getEvents', getEventsRouter);
