@@ -4,7 +4,6 @@ import { BadRequestError } from '../exceptions/BadRequestError';
 
 export const deleteEvent = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
   const prisma = new PrismaClient();
-
   const { id } = req.body;
   if (!id) {
     return next(new BadRequestError({ message: 'No Event Id provided.' }));
