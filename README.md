@@ -1,6 +1,6 @@
 # event-handler-api
 ## Stack used 
-### -web : React + TS + Vite + Jest 
+### -web : React + TS + Vite + Jest + Redux Toolkit
 ### -api: NodeJs + TS + ExpressJs + Prisma PostgreSQL + Jest + Swagger for documentation
 
 ## Few words: 
