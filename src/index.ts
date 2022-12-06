@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
@@ -9,13 +10,13 @@ import { getEventsRouter } from './routes/getEvents';
 import { deleteEventRouter } from './routes/deleteEvent';
 import { swaggerSpecification } from './libs/swagger';
 
-require('dotenv').config();
-const app = express();
+dotenv.config();
+export const app = express();
 const PORT = 5000;
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 100,
+  max: 200,
 });
 
 app.use(morgan('common'));
