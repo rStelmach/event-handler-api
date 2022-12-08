@@ -36,6 +36,8 @@ app.use('/addEvent', addEventRouter);
 app.use('/getEvents', getEventsRouter);
 app.use('/deleteEvent', deleteEventRouter);
 
-app.listen(PORT, () => {
-  console.log(`⚡️[server]: Server is running at http://localhost:${PORT}/`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`⚡️[server]: Server is running at http://localhost:${PORT}/`);
+  });
+}
